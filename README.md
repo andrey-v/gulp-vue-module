@@ -7,7 +7,8 @@ Now, You can use [Require.js](https://github.com/requirejs/requirejs) / [Sea.js]
 ### Usage
 
 ```shell
-$ npm install gulp-vue-module --save-dev
+$ npm install github:andrey-v/gulp-vue-module --save-dev
+
 ```
 
 `Gulpfile.js` :
@@ -152,14 +153,15 @@ require.loadCSS = function(config) {
 
 ```javascript
 {
-    debug              : false,            // Debug mode
-    amd                : false,            // AMD style, Define module name and deps
-    define             : true,             // Using define() wrapper the module, false for Node.js (CommonJS style)
-    defineName         : false,            // Define the module name
-    indent             : '    ',           // Indent whitespace
-    headerComment      : true,             // Using <header-comment> Insert the header comments
-    templateReplaceTag : '__template__', // vue component template replace tag
-    loadCSSMethod      : 'require.loadCSS' // define the load css method for require
+    debug                   : false,            // Debug mode
+    amd                     : false,            // AMD style, Define module name and deps
+    define                  : true,             // Using define() wrapper the module, false for Node.js (CommonJS style)
+    defineName              : false,            // Define the module name
+    indent                  : '    ',           // Indent whitespace
+    headerComment           : true,             // Using <header-comment> Insert the header comments
+    templateReplaceRegexp   : 'template(?:\[\t| )*?,', // vue component template replace regexp
+    loadCSSMethod           : 'require("loadCSS")' // define the load css method for require
+    preDefDeps              : 'require', 'exports', 'module', 'loadCSS' // Predefining deps for all modules 
 }
 ```
 
